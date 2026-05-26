@@ -62,7 +62,7 @@ height_casted = str(1.78)
 print('Your height = ' + height_casted)
 
 # String formatting
-'''If I have for examplee, an integer, and I would like to join it with a string without
+'''If I have for example, an integer, and I would like to join it with a string without
 casting or changing the data structure, I can use f-strings'''
 
 price = 1000
@@ -116,7 +116,7 @@ print(user_age) # Will result into 30 which is true
 
 default_greeting = 'there'
 name = input('Enter your name (Optional): ')
-user_name = name or default_greeting # The or will stop at the first value if its true, so precedence matters!
+user_name = name or default_greeting # The 'or' will stop at the first value if its true, so precedence matters!
 print(f'Hello, {user_name}!')
 
 # Let's talk about lists: These allow multiple values to be stored in a single variable
@@ -133,7 +133,7 @@ birth_month = [['Ken', 'Dec'], ['Yammie', 'Oct'], ['Mpha', 'Sept']]
 
 # OK lets try now tuples: Similar to lists but do have a subtle difference
 
-''' Lists are defined ny square brackets, with tuples you do not need brackets
+''' Lists are defined by square brackets, with tuples you do not need brackets
 However, it is best practice to wrap tuples in round brackets'''
 
 tuple_example = 'Ken', 'Yammie', 'Mpha'
@@ -153,7 +153,7 @@ print(tuple_example) # It will result into ('Ken', 'Yammie', 'Mpha', 'Amina')
 
 
 # Sets: Similar to tuples and lists but slightly different
-# Sets do not contain any order and duplicates
+# Sets do not contain any order and do not allow duplicates
 # They are defined using curly braces
 
 randon_num = {20, 34, 56, 9, 17}
