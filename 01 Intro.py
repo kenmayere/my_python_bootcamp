@@ -153,8 +153,12 @@ print(tuple_example) # It will result into ('Ken', 'Yammie', 'Mpha', 'Amina')
 
 
 # Sets: Similar to tuples and lists but slightly different
-# Sets do not contain any order and do not allow duplicates
+# Sets do not contain any order and do not allow any duplicates
 # They are defined using curly braces
 
 randon_num = {20, 34, 56, 9, 17}
 print(randon_num) # {17, 34, 20, 56, 9}
+
+# Can I add to a set, let me try
+randon_num.add(23)
+print(randon_num) # It has worked
