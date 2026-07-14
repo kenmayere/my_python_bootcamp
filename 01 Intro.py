@@ -227,4 +227,15 @@ print(dict_one['name']) # Calling out a value by the key
 
 # What is I want to store such information for a group: I can create a tuple of dictionaries
 
-choir = ({'name':'Ken', 'voice':'Tenor'}, {'name':'JD', 'voice':'Tenor'})
+mds = ({'name':'Ken', 'voice':'Tenor'}, {'name':'JD', 'voice':'Tenor'})
+print(mds)
+
+# Let me try indentation
+
+other_members = (
+    {'name': 'Eluphy', 'voice': 'Sap'},
+    {'name': 'Tio', 'voice': 'Sap'},
+    {'name': 'Fai', 'voice': 'Sap'},
+    {'name': 'Love', 'voice': 'Sap'}
+)
+print(other_members)
