@@ -239,3 +239,32 @@ other_members = (
     {'name': 'Love', 'voice': 'Sap'}
 ) # running this block needs selection
 print(other_members)
+
+# I can also convert a list of tuples into a dict
+
+mytuple = [('Eluphy', 'Sap'),('Tio','Sap'),('Aggie', 'Alto')]
+print(mytuple)
+mydict = dict(mytuple)
+print(mydict)
+
+''' Sum and Length Functions'''
+
+grades = [70, 80, 90, 100]
+total = sum(grades)
+print(total)
+
+length = len(grades)
+print(length)
+
+average = total/length
+print(average)
+
+## Now lastly on lists
+
+# Joining list elements in a string
+
+amigos = ['Fa', 'JD', 'Binz', 'Mada', 'Cliff']
+comma_sep = ', '.join(amigos) # I have used a comma seperator to join the elements in the list in one string
+print(f'My friends are {comma_sep}.')
+
+''' This marks the end of the Intro section'''
