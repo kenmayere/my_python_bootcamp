@@ -237,5 +237,5 @@ other_members = (
     {'name': 'Tio', 'voice': 'Sap'},
     {'name': 'Fai', 'voice': 'Sap'},
     {'name': 'Love', 'voice': 'Sap'}
-)
+) # running this block needs selection
 print(other_members)
