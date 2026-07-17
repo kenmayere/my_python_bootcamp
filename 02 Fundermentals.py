@@ -46,10 +46,36 @@ else:
 # Great stuff, lets now talk about loops - While loops
 # Loops let us do something repeatedly
 
-is_learning = True 
+is_learning = True
 
 while is_learning:
     print('I am learning')
     user_input = input('Are you learning? (yes/no) ')
     is_learning = user_input == 'yes'
     print('I have stopped learning')
+
+# Let's now look at for loops
+''' These are used when I want to repeat something a definate number of time and or
+I want to use a value of each of an iterable (tuple, list, dict or set) to do something'''
+
+# For example
+for friend in friends:
+    print(friend)
+''' Here it will print each element in the friend list one after the other.
+When the loop is running, it will create a variable 'friend' and assign it an element fromn the friends list,
+it will then print that variable, then it will repeat the process by creating a new variable with a new element'''
+
+students = [
+    {'name':'JD', 'grade': 85},
+    {'name':'Frank', 'grade':90},
+    {'name':'Davie', 'grade':95},
+    {'name':'Bule', 'grade':100}
+]
+for results in students:
+    name = results['name']
+    grade = results['grade']
+    print(f'{name} has got {grade} marks')
+    
+''' Agin here, the for loop create a variable results and assign it the first value in the list which is 
+a dictionary, then we assign the first value in the dict with a key called name to name variable,
+similary grade to grade variable using the key grade. For each iteration, the print function is running'''
