@@ -112,3 +112,33 @@ for points in player_points.values():
 # But I want to make it more intuitive and print out both key and value
 for name, points in player_points.items():
     print(f'{name} has {points} points this season')
+
+# Hello new day, let's continuw with break and continue keyword
+# These are useful in loops
+
+# Example: Suppose I have a list of car production status
+
+cars = ['OK', 'OK', 'OK', 'Faulty', 'OK', 'OK']
+for status in cars:
+    print(f'This car is {status}')
+
+# For my imaginary production line, once a car is faulty I stop the production
+# Here I use the break key word
+
+for status in cars:
+    if status == 'Faulty':
+        print('This car is faulty, stop the production')
+        break
+    print(f'This car is {status}')
+    print('Shipping the new car to the customer')
+
+# This code will break once the if statement evaluates to true.
+# But I have two more cars remaining in the list, I only need to skip the faulty
+# The continue key word is useful in this case as it will skip the element meeting the if condition and continue with the rest.
+
+for status in cars:
+    if status == 'Faulty':
+        print('Faulty car detected. Skip shipping')
+        continue
+    print(f'This car is {status}')
+    print('Shipping this new car to the customer')
