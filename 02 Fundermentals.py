@@ -142,3 +142,35 @@ for status in cars:
         continue
     print(f'This car is {status}')
     print('Shipping this new car to the customer')
+
+# Good day, I now explore else key word in loops.
+# I will use the previous example of the cars list.
+# With the break key word, it will stop the iteration when it encounters the faulty
+# Now to add a line to the parent for loop, we can use else key word, this runs if the branch runs successfully
+# For example, there are no breaks or errors. So I will change the faulty car status to OK
+cars = ['OK', 'OK', 'OK', 'OK', 'OK', 'OK']
+for status in cars:
+    if status == 'Faulty':
+        print('Faulty car detected. Skip shipping')
+        break
+    print(f'This car is {status}')
+    print('Shipping this new car to the customer')
+else:
+    print('Shipping successful. No faulty cars')
+
+# Now let me try finding prime numbers, a classic coding hand-ons exercise
+# A prime number is one that is divisible by 1 and itself
+# Let me find prime numbers in the range of 2-10
+for n in range(2, 10): # 10 is exclusive
+    for x in range(2, n): # Here we develop a list of numbers below n
+        if n % x == 0:
+            print(f'{n} is equal to {x} * {n//x}')
+            break # The break will apply for the inside for loop if the condition is met, but the outside will continue to iterate
+    else:
+        print(f'{n} is a prime number')
+
+# List slicing: process of getting a part of the list or other iterable
+friends = ['JD','Frank','Davie','Bule','MacD']
+print(friends[2:4]) # Here it will display item on first index specified and end on the second index -1 
+# ['Davie', 'Bule']
+# There many ways like [:], [1:], [:3], [-3:2], [-1:-3] for various things..,
