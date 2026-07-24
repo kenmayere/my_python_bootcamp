@@ -174,3 +174,44 @@ friends = ['JD','Frank','Davie','Bule','MacD']
 print(friends[2:4]) # Here it will display item on first index specified and end on the second index -1 
 # ['Davie', 'Bule']
 # There many ways like [:], [1:], [:3], [-3:2], [-1:-3] for various things..,
+
+# Good day, now let's talk about list comprehensions
+# This allows the creation of new lists succinctly and in a powerful way
+number = [1, 2, 3, 4, 5]
+# If I want to create a new list of numbers doubled from the list I can do the following
+double_number = []
+for number in number:
+    double_number.append(number * 2)
+
+# But with list comprehensions, I can produce the same in a more succinct and powerful way
+double_number = [x * 2 for x in number]
+# Here is another example
+friends_ages = [23, 24, 25, 26, 24]
+age_string = [f'My friend is {k} years old' for k in friends_ages] # A list of strings
+
+# Another example
+names = ['Rolf', 'Bob', 'Jen']
+lower = [k.lower() for k in names]
+
+# Another example: Reusing the friends variable
+friend = input("Please enter your friend's: ")
+friends = ['JD','Frank','Davie','Bule','MacD']
+# I need to create another list to convert the input into lower cases for easy comparison
+friends_lower = [k.lower() for k in friends]
+# And I need to convert the input into lowercase and compare it against the lowercase list that I have created above
+# I can also do title casing on the output for that regardless of how input is made, it capitalize first letter only
+
+if friend.lower() in friends_lower:
+    print(f'{friend.title()} is one of your friends') # Used title casing
+
+# Let me try list comprehensions with conditionals
+gents = ['JD','Frank','Davie','Bule','MacD']
+practice = ['davie', 'MacD', 'FRANK', 'Ken', 'Fai', 'MissT']
+# I would like to print a list of friends that showed up for practice
+gents_lower = [g.lower() for g in gents]
+present = [
+    p.title() for p in practice
+    if p.lower() in gents_lower
+]
+print(present)
+
