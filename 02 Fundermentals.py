@@ -215,3 +215,17 @@ present = [
 ]
 print(present)
 
+# Hello new day
+# Now we move to set and dictionary comphrehension
+# From the previous example, I can create a set for each list
+
+lower_gents = set([n.lower() for n in gents])
+lower_practice = set([n.lower() for n in practice])
+print(lower_gents.intersection(lower_practice))
+
+# But I can also directly create a set using curry brackets
+gents_lower2 = {n.lower() for n in gents}
+practice_lower2 = {n.lower() for n in practice}
+present_members = {name.title() for name in gents_lower2.intersection(practice_lower2)}
+print(present_members)
+
