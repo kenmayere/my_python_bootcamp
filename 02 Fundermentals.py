@@ -227,5 +227,26 @@ print(lower_gents.intersection(lower_practice))
 gents_lower2 = {n.lower() for n in gents}
 practice_lower2 = {n.lower() for n in practice}
 present_members = {name.title() for name in gents_lower2.intersection(practice_lower2)}
+# I could have also created a variable
+# present_set = gents_lower2.intersection(practice_lower2), then create a set with comprehensions
+# Like: present_members = {name.title() for name in present_set}
 print(present_members)
 
+# Now lets looks at dictionary comprehension using the following example
+members = ['Davie', 'Frank', 'Bule', 'JD']
+days_last_seen = [3, 12, 2, 2]
+
+# I can create a disctionary using comphrehensions like
+time_count = {
+    members[i]:days_last_seen[i]
+    for i in range(len(members))
+}
+# I can now iterate over the dictionary
+for members, days_last_seen in time_count.items():
+    print(f'About {days_last_seen} days have passed since I last met {members}')
+
+# There is a shorter way of creating a dictionary and that is using the dict function
+# But from the two lists I need to combine the elements into tuples, for example, ('Davie', 3)('Frank', 12) etc
+# I can do that through the zip function and parse a dict function
+zipped = dict(zip(members, days_last_seen))
+print(zipped)
