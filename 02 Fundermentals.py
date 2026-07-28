@@ -264,3 +264,11 @@ for counter, classmate in enumerate(classmates):
 print(list(enumerate(classmates)))
 # Or a dict
 print(dict(enumerate(classmates, start=1))) # The count will start at 1
+
+# Now let me explore functions
+# Functions are defined by the def key word followed by an indented block of code, for example
+def greet():
+    name = input('Please Enter your name: ').title()
+    print(f'Hello {name}')
+# Above, greet is the name of the function and its only defined, it wont run the block of code until its called
+greet()
