@@ -250,3 +250,17 @@ for members, days_last_seen in time_count.items():
 # I can do that through the zip function and parse a dict function
 zipped = dict(zip(members, days_last_seen))
 print(zipped)
+
+# Good day
+# Let's start with the enumerate function
+classmates = ['Theo', 'Likhwa', 'Ken', 'Khumbz', 'Thymon']
+# I want to print out all these but starting with a number like 0, 1, 2, 3 etc
+counter = 0
+for counter, classmate in enumerate(classmates):
+    print(counter)
+    print(classmate)
+
+# If I want to make a list of each number and element
+print(list(enumerate(classmates)))
+# Or a dict
+print(dict(enumerate(classmates, start=1))) # The count will start at 1
