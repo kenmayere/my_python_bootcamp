@@ -272,3 +272,43 @@ def greet():
     print(f'Hello {name}')
 # Above, greet is the name of the function and its only defined, it wont run the block of code until its called
 greet()
+
+# Hello new day: Let's talk about arguments and parameters
+# These are useful in functions as they make functions to be reusable with multiple data
+# Example:
+def calculate_mpg():
+    sports_car = {
+        'make': 'Ford',
+        'model': 'Fiesta',
+        'mileage': 23000,
+        'fuel_consumed': 460
+    }
+    mpg = sports_car['mileage']/sports_car['fuel_consumed']
+    name = f'{sports_car['make']} {sports_car["model"]}'
+    print(f'{name} does {mpg} miles per gallon')
+calculate_mpg() # Calling the function
+
+# Here the function is limited because I can not resuse it with other data
+# I need to use define a parameter and use arguments
+# Arguments: Data passed in a function call, parameter: variable that accepts/receives the value of an argument
+# Syntax: def function(parameter), function_call(argument)
+# I will create a function that I can reuse with multiple data/values: List of cars
+
+sport_cars = [
+    {'make':'Ford', 'model':'Fiesta', 'mileage':23000, 'fuel_consumed':460},
+    {'make':'Ford', 'model':'Focus', 'mileage':17000, 'fuel_consumed':360},
+    {'make':'Mazda', 'model':'MX5', 'mileage':49000, 'fuel_consumed':900},
+    {'make':'Cooper', 'model':'Mini', 'mileage':31000, 'fuel_consumed':235}
+]
+
+def calculate_car_mpg(car_to_calculate):
+    car_mpg = car_to_calculate['mileage']//car_to_calculate['fuel_consumed']
+    car_name = f'{car_to_calculate['make']} {car_to_calculate['model']}'
+    print(f'{car_name} does {car_mpg} miles per gallon.')
+
+# Calling the function for the any car, for example the Mazda
+calculate_car_mpg(sport_cars[2])
+# Calling the function for all the cars in the list I can use a for loop
+for car_to_calculate in sport_cars:
+    calculate_car_mpg(car_to_calculate)
+
