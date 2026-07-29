@@ -312,3 +312,14 @@ calculate_car_mpg(sport_cars[2])
 for car_to_calculate in sport_cars:
     calculate_car_mpg(car_to_calculate)
 
+# Let me explore default parameters and named arguments
+def add(x,y):
+    total = x + y
+    return total
+print(add(3,4))
+# I can create a default value for example y=5 in the def, this will become a default parameter
+# Or I can do x=10, y=7 in the function call, these become named arguments
+def subtract(x, y=5):
+    total = x-y
+    return total
+print(subtract(10))
