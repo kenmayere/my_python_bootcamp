@@ -323,3 +323,27 @@ def subtract(x, y=5):
     total = x-y
     return total
 print(subtract(10))
+
+# Now let me explore lambda functions
+# The they take an input(parameter) and returns an output. They use the following syntax
+# function_name = lambda param: return_value
+studs = [
+    {'name':'Rolf', 'grade':(67, 90, 95, 100)},
+    {'name':'Bob', 'grade':(56, 78, 80, 90)},
+    {'name':'Jen', 'grade':(98, 90, 95, 99)},
+    {'name':'Anne', 'grade':(100, 100, 95, 100)}
+]
+# For a generic function 
+def average(sequence):
+    return sum(sequence) / len(sequence)
+# Trying the function for one value
+print(average(studs[0]['grade']))
+# For all the value
+for student in studs:
+    print(average(student['grade']))
+# But I can create a lambda function for the same
+avg = lambda sequence: sum(sequence)/ len(sequence)
+# Calling the function
+for student in studs:
+    print(f'{student['name']} has an average of {avg(student['grade'])}')
+
