@@ -347,3 +347,64 @@ avg = lambda sequence: sum(sequence)/ len(sequence)
 for student in studs:
     print(f'{student['name']} has an average of {avg(student['grade'])}')
 
+# For the final discussion in this section, let me explore first class functions
+'''First class functions are so called because they can be assigned to variables and be used
+as arguments in other functions and as values in lists, dict, etc'''
+# Example,
+def greet():
+    print('Hello')
+greet # Without the bracket, the function will not be called but it is recogned as a function > <function greet at 0x77d7934c2a20>
+hello = greet # Here I have assigned the function to the variable hello, and I can call it using the new variable
+hello() # It calls the function
+
+# With this in mind, let me try to explore the first class functions, from the previous examples
+avg_1 = lambda seq: sum(seq) / len(seq)
+total = lambda seq: sum(seq)
+top = lambda seq: max(seq)
+learners = [
+    {'name':'Rolf', 'grade':(67, 90, 95, 100)},
+    {'name':'Bob', 'grade':(56, 78, 80, 90)},
+    {'name':'Jen', 'grade':(98, 90, 95, 99)},
+    {'name':'Anne', 'grade':(100, 100, 95, 100)}
+]
+# Calling out the functions
+for learner in learners:
+    name = learner['name']
+    grade = learner['grade']
+    print(f'Student: {name}')
+    operation = input("Please enter 'average', 'total', 'top': ")
+    if operation == 'average':
+        print(avg_1(grade))
+    elif operation == 'total':
+        print(avg_1(grade))
+    elif operation == 'top':
+        print(avg_1(grade))
+
+# The about code works, but I can make it a bit simpler using further the first class functions
+'''In the above code, I was calling the function using input which is code language,
+I can just associate that with the functions, How? Using dictionaries for associations'''
+# I will repeat some code and introduce other modifications 
+avg_2 = lambda seq: sum(seq) / len(seq)
+total_1 = sum
+top_1 = max
+operations = {
+    'average': avg_2,
+    'total': total_1,
+    'top': top_1
+}
+for learner in learners:
+    name = learner['name']
+    grade = learner['grade']
+    print(f'Student: {name}')
+    prompt = input("Please enter ('average' or 'total' or 'top'): ")
+    operation_function = operations[prompt]
+    print(operation_function(grade))
+
+# What is happening: For every iteration, it is first printing out the name of the learner, then
+# Prompting the operation, the input gets stored in prompt variable and it's used as a key to access
+# The value of the dictionary associated with that key. And this value is a function.
+# I have also created proxy functions sum and max.
+
+# ----------- this marks the end of the fundermentals follow-through of the course intro to python programming with Jose from Teclado -------- #
+# ----------- A long script but necessary for the context, off to another module, well done for me. We keep learning ------------------------- #
+
