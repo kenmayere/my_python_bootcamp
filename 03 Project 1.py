@@ -71,12 +71,10 @@ def search_movies():
     search = input('Please Enter the Title to Search: ')
     for x in movies:
         results = x['Title']
-    if search == results:
-        print(f'Matche(s) Found: {search}')
-    else:
-        print('No Matches Found')
-       
-    
+        if search == results:
+            print(f'Match(es) Found: {search}')
+            return
+    print('No Matches Found')
 
 
 # --------------- Step 5 -------------------------------------
