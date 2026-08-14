@@ -71,7 +71,16 @@ class Movie:
     def __init__(self, movie_name, movie_director):
         self.name = movie_name
         self.director = movie_director
+    def print_info(self):
+        print(f'<<{self.name}>> by {self.director}')
 
 # Creating the Movie Object to contain the data in the movie dictionary
 movie_object = Movie('Blackberry', 'Matt Johnson')
+movie_object.print_info()
+
+# In the Movie class, the dunder init function is not creating name or director variable in the self blank object
+# It is creating a property in the self, thats why the syntanx self.parameter
+
+
+
 
