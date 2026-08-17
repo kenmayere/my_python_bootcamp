@@ -16,7 +16,7 @@ print(average(my_student)) # It yields 91.75
 
 '''
 Jose explained that there is a design flaw with the software. The function is disjointed with the data it 
-working with even though it it closely 'coupled' with it in this case the dict. (I must admit that my understanding limited of what he explained).
+working with even though it it closely 'coupled' with it, in this case the dict. (I must admit that my understanding maybe limited of what he explained).
 It means that everytime the data changes, the function must change, for example, changing from 'grades' to 'results', which pose a problem if these
 data and actions are not physically at the same place. The solution would be to include the function inside of the data dict,
 for example, but unfortunately it is not possible. That's why the idea of OOP comes in.
@@ -64,7 +64,7 @@ print(student_one.average())
 # Test: Creating class for a movie dictionary
 movie = {
     'name': 'Blackberry',
-    'director': 'Matth Johnson'
+    'director': 'Matt Johnson'
 }
 # Creating a class to create a 'Movie' object
 class Movie:
@@ -81,6 +81,47 @@ movie_object.print_info()
 # In the Movie class, the dunder init function is not creating name or director variable in the self blank object
 # It is creating a property in the self, thats why the syntanx self.parameter
 
+# --------------------------- Magic Methods ------------------------------
+# Hello new day, I proceed looking into magic methods (dunder functions)
+# I will right code of all I wanted to discuss today just to save space and explain line by line as I go for this section.
+class Garage:
+    def __init__(self):
+        self.cars = []
+    def __len__(self):
+        return len(self.cars)
+    def __getitem__(self, i):
+        return self.cars[i]
+    def __repr__(self):
+        return f'<Garage {self.cars}>'
+    def __str__(self):
+        return f'Garage with {len(self)} cars'
+
+
+ford = Garage()
+ford.cars.append('Fiesta')
+ford.cars.append('Focus')
+print(ford.cars.__class__) # It shows me that my object is a list
+print(len(ford)) # TypeError: object of type 'Garage' has no len(). This because it doesnt know what the len of the object will be.
+
+# To go beyond this error, I created a dunder function to return len for the ford list object
+# Calling it >> According to the way it is defined 
+print(len(ford)) 
+
+# Now given that, my ford object is a list. Can I just call any item by indexing.
+# This is only possible, if I create another dunder function to access an item by index slicing. I created the __getitem__ function
+print(ford[0])
+
+# Using the getitem function unlocks the potential for a for-loop
+# Why? The ford object is a list. However, created through a class definition will require special functions to access, hence I guess OOP.
+# For the for-loop, now it runs because in the background, python runs the __getitem__ function and then iterate the object
+for car in ford:
+    print(car)
+
+# In the class structure, there is the __repr__ . This is code oriented and recommended for debugging
+print(repr(ford))
+
+# Additionally, there is a line for a string function. This is user-facing
+print(str(ford))
 
 
 
