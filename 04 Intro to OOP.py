@@ -123,5 +123,35 @@ print(repr(ford))
 # Additionally, there is a line for a string function. This is user-facing
 print(str(ford))
 
+# -------------------- Exercise 1: Designing the architecture and inner methods of the Club class ---------------------------
+# I now move to complete an exercise on dunder functions. I will tackle it by list of steps to complete
+# Step 1: Creating a club class
+# Step 2: Creating an instance (my_club)
+# Step 3: Adding players to the object my_club
+# Step 4: Accessing the i-th player in my_club
+# Step 5: Return a string representation of the current object
+# Step 6: Return a readable string to the user about this object
 
+class Club:
+    def __init__(self, name):
+        self.name = name
+        self.players = []
+    def __len__(self):
+        return len(self.players)    
+    def __getitem__(self, i):
+        return self.players[i] # Step 4
+    def __repr__(self):
+        return f'Club {self.name}: {self.players}' # Step 5 - This will allow me to use it on any club
+    def __str__(self):
+        return f'Club {self.name} has {len(self)} players' # Step 6
 
+my_club = Club('Asernal') # Step 2
+my_club.players.append('Rolf') # Step 3
+my_club.players.append('Anne') # Step 3
+
+print(my_club[0]) # Step 4 = Rolf
+print(repr(my_club)) # Step 5 = Club Asernal: ['Rolf', 'Anne']
+print(my_club) # Step 6 = Club Asernal with 2 players
+
+# In the above code, I made some mistakes: I casted 'name' Asernal in the code. This locked my class object for multiple use
+# I have made changes to the __repr__ and __str__ dunder functions to take in any arguments
