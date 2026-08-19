@@ -173,12 +173,23 @@ class WorkingStudent(Student):
     def __init__(self, name, school, salary):
         super().__init__(name, school)
         self.salary = salary
+    @property
+    def weekly_salary(self):
+        return self.salary * 40
 
 # A few things to note: The WorkingStudent takes in the Student class as shown in parenthesis
 # I have manually initilized the __init__ function using the super().__init__ to inherit parameters
 # In this class, since it is a child of Student, it has inherited the average method as well
+# And I can extend my class with other methods, for example, the weekly_salary.
+# Inheritance works top to bottom and not viceversa
 ken = WorkingStudent('Ken', 'Wits', 250)
 ken.marks.append(85)
 ken.marks.append(92)
 ken.average()
 
+'''
+Property decorator: Usually methods are called using Object.method() syntax. But other methods, only takes in the self parameter,
+and return a value. These can better be called using Object.method syntax. To do so in the above example, to call the weekly_salary,
+I have added @property as a decorator to the class before defining the weekly_salary function
+'''
+ken.weekly_salary
