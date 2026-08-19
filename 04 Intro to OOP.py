@@ -155,3 +155,30 @@ print(my_club) # Step 6 = Club Asernal with 2 players
 
 # In the above code, I made some mistakes: I casted 'name' Asernal in the code. This locked my class object for multiple use
 # I have made changes to the __repr__ and __str__ dunder functions to take in any arguments
+
+# --------------------- Inheritance ----------------------
+class Student:
+    def __init__(self, name, school):
+        self.name = name
+        self.school = school
+        self.marks = []
+    def average(self):
+        return sum(self.marks) / len(self.marks)
+
+# The above class represent a Student, and it takes in name and school.
+# I would like to create another class WorkingStudent with the only addition being salary parameter
+# I must inherit the parameters from Student as a parent class
+
+class WorkingStudent(Student):
+    def __init__(self, name, school, salary):
+        super().__init__(name, school)
+        self.salary = salary
+
+# A few things to note: The WorkingStudent takes in the Student class as shown in parenthesis
+# I have manually initilized the __init__ function using the super().__init__ to inherit parameters
+# In this class, since it is a child of Student, it has inherited the average method as well
+ken = WorkingStudent('Ken', 'Wits', 250)
+ken.marks.append(85)
+ken.marks.append(92)
+ken.average()
+
