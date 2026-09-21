@@ -193,3 +193,7 @@ and return a value. These can better be called using Object.method syntax. To do
 I have added @property as a decorator to the class before defining the weekly_salary function
 '''
 ken.weekly_salary
+
+# -------------------- 
+
+# Hello World, I am now back to coding after a month long break!
