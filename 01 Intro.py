@@ -2,7 +2,7 @@
 
 # Example
 age = 30 # integer
-countries_visited = 90 # snake_case
+countries_visited = 90 # snake_case method of naming variables
 gender = 'male' # string
 
 PI = 3.14159 # Constants are in capitals
@@ -106,7 +106,8 @@ match = user_num == magic_num
 print(f'We do have a match? {match}') # It will evaluate to True or False if the number matches
 
 # The 'and' & 'or' key word
-'''and looks for True in both values to evaluate to True while or looks for True in either values
+''' 
+"and" looks for True in both values to evaluate to True while "or" looks for True in either values
 to evaluate to True, for example;
 True and True = True
 True and False = False
@@ -116,7 +117,8 @@ False and False = False
 True or True = True
 True or False = True
 False or True = True
-False or False = False'''
+False or False = False
+'''
 
 default_age = 30 # If I parse this as a bool it will result into True, because is non-zero and non-empty
 age = 0 # If I parse this as a bool it will result into False, because it is zero (similary empty values)

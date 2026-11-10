@@ -76,7 +76,7 @@ for results in students:
     grade = results['grade']
     print(f'{name} has got {grade} marks')
     
-''' Agin here, the for loop create a variable 'results' and assign it the first value in the list which is 
+''' Again here, the for loop create a variable 'results' and assign it the first value in the list which is 
 a dictionary, then we assign the first value in the dict with a key called name to 'name' variable,
 similary grade to 'grade' variable using the key grade. For each iteration, the print function is running'''
 
@@ -244,6 +244,7 @@ time_count = {
 # I can now iterate over the dictionary
 for members, days_last_seen in time_count.items():
     print(f'About {days_last_seen} days have passed since I last met {members}')
+# I can try the same using the zip function
 
 # There is a shorter way of creating a dictionary and that is using the dict function
 # But from the two lists I need to combine the elements into tuples, for example, ('Davie', 3)('Frank', 12) etc
@@ -376,9 +377,9 @@ for learner in learners:
     if operation == 'average':
         print(avg_1(grade))
     elif operation == 'total':
-        print(avg_1(grade))
+        print(total(grade))
     elif operation == 'top':
-        print(avg_1(grade))
+        print(top(grade))
 
 # The about code works, but I can make it a bit simpler using further the first class functions
 '''In the above code, I was calling the function using input which is code language,
