@@ -85,7 +85,7 @@ movie_object.print_info()
 
 # --------------------------- Magic Methods ------------------------------
 # Hello new day, I proceed looking into magic methods (dunder functions)
-# I will right code of all I wanted to discuss today just to save space and explain line by line as I go for this section.
+# I will write code of all I wanted to discuss today just to save space and explain line by line as I go for this section.
 class Garage:
     def __init__(self):
         self.cars = []
@@ -169,7 +169,22 @@ class Student:
 
 # The above class represent a Student, and it takes in name and school.
 # I would like to create another class WorkingStudent with the only addition being salary parameter
+
+# ------------ This is a class : WorkingStudent
+# class WorkingStudent():
+#     def __init__(self, name, school, salary):
+#         self.name = name
+#         self.school = school
+#         self.salary = salary
+#         self.marks = []
+#     def average(self):
+#         return sum(self.marks) / len(self.marks)
+#----------------
+# In this class, I see alot of duplicates with the class Student
 # I must inherit the parameters from Student as a parent class
+# Inheritance is possible using the key work super() and then manually calling the __init__ ..,
+# .. and specifiying the parameters/propertiers interested in.
+# I will comment out the prev class constrution for a new one below
 
 class WorkingStudent(Student):
     def __init__(self, name, school, salary):
@@ -193,6 +208,8 @@ ken.average()
 Property decorator: Usually methods are called using Object.method() syntax. But other methods, only takes in the self parameter,
 and return a value. These can better be called using Object.method syntax. To do so in the above example, to call the weekly_salary,
 I have added @property as a decorator to the class before defining the weekly_salary function
+The @property is only useful when calculating values from the objects themselves. Otherwise, I need to use the traditional way
+of calling object methods.
 '''
 ken.weekly_salary
 
@@ -200,3 +217,45 @@ ken.weekly_salary
 
 # Hello World, I am now back to coding after a month long break! 
 # I will be back soon! Apologies.
+
+# -------------- Let me kick start with class and static methods
+
+# Let me do so by creating a class as I have done multiple times
+class AnotherStudent():
+    def __init__(self, name, school):
+        self.name = name
+        self.school = school
+        self.marks = []
+    def average(self):
+        return sum(self.marks) / len(self.marks)
+
+# Creating an object called mike
+mike = AnotherStudent('mike', 'MIT')
+mike.marks.append(90)
+mike.marks.append(90)
+
+mike.average()
+# In the above class method call, it uses the object as an argument (=self) in the average method
+# There are other ways to call a method: 1. Uses the class as first argument and another(2) takes in nothing
+# Examples: Just highlighting the syntax
+
+# ------- class method
+class Foo:
+    @classmethod
+    def hi(cls):
+        print(cls.__name__)
+
+my_object = Foo()
+my_object.hi() # Here the result will be Foo the class name
+# Since, I have defined it as class method, the hi() takes in the class as its argument
+
+# -------- static method
+class Bar:
+    @staticmethod
+    def hi():
+        print('Hello, I don\'t take in parameters' )
+
+my_other_object = Bar()
+my_other_object.hi()
+# In the static method, it takes in nothing as its argument, the hi() method doesnt pass anything as an argument
+
