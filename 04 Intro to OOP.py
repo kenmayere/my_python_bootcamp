@@ -9,13 +9,14 @@ my_student = {
 
 # Creating a function for calculating average
 def average(student):
-    return sum(my_student['grades'])/ len(my_student['grades'])
+    return sum(student['grades'])/ len(student['grades'])
 
-# Calling the function
+
+#  Calling the function
 print(average(my_student)) # It yields 91.75
 
 '''
-Jose explained that there is a design flaw with the software. The function is disjointed with the data it 
+Jose explained that there is a design flaw with the software. The function is disjointed with the data it is
 working with even though it it closely 'coupled' with it, in this case the dict. (I must admit that my understanding maybe limited of what he explained).
 It means that everytime the data changes, the function must change, for example, changing from 'grades' to 'results', which pose a problem if these
 data and actions are not physically at the same place. The solution would be to include the function inside of the data dict,
@@ -34,7 +35,7 @@ class Student:
 
 ''' ------------ A few points here: ----------------
 1. The object is created using a 'class' key word
-2. The object name 'Student' starts with an upper class
+2. The class name 'Student' starts with an upper class
 '''
 
 # Step 2: Creating the object >> This essentially means calling the object structure
@@ -55,6 +56,7 @@ student_two = Student('Ford', [75, 80, 85, 99])
 '''
 # Calling the method
 print(student_one.average())
+print(student_two.average())
 # In the background python is running Student.average(student_one)
 # Thus accessing the class, then the method, finally passing the object
 # But, Object.method() already position 'student_one' as the self aurgument in the class structure
