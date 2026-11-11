@@ -287,7 +287,7 @@ new_number = number_1.from_sum(19.575, 0.789)
 print(new_number)
 # But here I have not used number_1 object as value (18.5746).
 # I can use @staticmethods to have the class 
-# I will recreate the class and use @staticmethod and have the class not object whose values I may not use
+# I will recreate the class and use @staticmethod so I dont need to use self in it
 
 class FixedFloat_2:
     def __init__(self, amount):
