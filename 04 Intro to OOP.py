@@ -255,7 +255,60 @@ class Bar:
     def hi():
         print('Hello, I don\'t take in parameters' )
 
-my_other_object = Bar()
+my_other_object = Bar() # Creating an object
 my_other_object.hi()
 # In the static method, it takes in nothing as its argument, the hi() method doesnt pass anything as an argument
 
+# ------- more examples
+# Let me create a class that will return a fixed amount of something, for example, currency
+class FixedFloat:
+    def __init__(self, amount):
+        self.amount = amount
+    def __repr__(self):
+        return f'<FixedFloat {self.amount:.2f}>'
+
+# Creating an object using the class above
+number = FixedFloat(18.5746)
+print(number)
+
+# If I want to extend the class to sum up two values I can add another function
+# (I will be recreating the class and extend to show progress instead of modifiying an existing one above)
+
+class FixedFloat_1:
+    def __init__(self, amount):
+        self.amount = amount
+    def __repr__(self):
+        return f'<FixedFloat {self.amount:.2f}>'
+    def from_sum(self, value_1, value_2):
+        return FixedFloat(value_1 + value_2)
+
+number_1 = FixedFloat_1(18.5746) # Creating an object from FixedFloat_1 cls
+new_number = number_1.from_sum(19.575, 0.789)
+print(new_number)
+# But here I have not used number_1 object as value (18.5746).
+# I can use @staticmethods to have the class as the argument in my from_sum method
+# I will recreate the class and use @staticmethod and have the class not object whose values I may not use
+
+class FixedFloat_2:
+    def __init__(self, amount):
+        self.amount = amount
+    def __repr__(self):
+        return f'<FixedFloat {self.amount:.2f}>'
+    @staticmethod
+    def from_sum(value_1, value_2):
+        return FixedFloat(value_1 + value_2)
+
+new_mumber_1 = FixedFloat_2.from_sum(19.575, 0.789) # I am calling the from_sum method using the class
+print(new_mumber_1)
+# Here I dont need to create an object that I cannot use later on
+
+# ----- Extendig further the class (FixedFloat_2) with currency parameters
+class Dollar(FixedFloat_2):
+    def __init__(self, amount):
+        super().__init__(amount)
+        self.symbol = '$'
+    def __repr__(self):
+        return f'<Dollar {self.symbol}{self.amount:.2f}>'
+
+money = Dollar(18.789)
+print(money)
