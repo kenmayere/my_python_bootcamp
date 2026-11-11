@@ -286,7 +286,7 @@ number_1 = FixedFloat_1(18.5746) # Creating an object from FixedFloat_1 cls
 new_number = number_1.from_sum(19.575, 0.789)
 print(new_number)
 # But here I have not used number_1 object as value (18.5746).
-# I can use @staticmethods to have the class as the argument in my from_sum method
+# I can use @staticmethods to have the class 
 # I will recreate the class and use @staticmethod and have the class not object whose values I may not use
 
 class FixedFloat_2:
@@ -312,3 +312,41 @@ class Dollar(FixedFloat_2):
 
 money = Dollar(18.789)
 print(money)
+
+# But will happen if I want to use the from_sum method, let me see
+add_money = Dollar.from_sum(16.759, 9.999)
+print(add_money) # The result will be <FixedFloat 26.76>
+
+# But I want it to use the __repr__ method in my Dollar object
+# I need to use @classmethod so the inherited from_sum method use my class object as its parameter when I call
+# Rewriting the entire code logic, it will look like this:
+
+class FixedFloat_2:
+    def __init__(self, amount):
+        self.amount = amount
+    def __repr__(self):
+        return f'<FixedFloat {self.amount:.2f}>'
+    @classmethod
+    def from_sum(cls, value_1, value_2):
+        return cls(value_1 + value_2)
+
+# Extended logic through inheritance
+class Dollar(FixedFloat_2):
+    def __init__(self, amount):
+        super().__init__(amount)
+        self.symbol = '$'
+    def __repr__(self):
+        return f'<Dollar {self.symbol}{self.amount:.2f}>'
+
+fee = Dollar.from_sum(16.579, 9.999)
+print(fee) # It gives <Dollar $26.58> instead of <FixedFloat 26.76>
+# Here the from_sum method is using the class on which it was call as a parameter because it is a class method
+# Calling it using the FixedFloat will use the FixedFloat class as a parameter, see below:
+added_fee = FixedFloat_2.from_sum(16.579, 9.999)
+print(added_fee) # Will give <FixedFloat 26.58>
+
+##------------------ This marks the end of intro to OOP --------------------- 
+
+#------------------------------ Kudos ---------------------------
+
+    
